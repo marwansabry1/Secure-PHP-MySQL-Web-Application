@@ -1,0 +1,8 @@
+{
+    "name": "mkr-motors/secure-app",
+    "description": "Secure Car Dealership Web Application",
+    "type": "project",
+    "require-dev": {
+        "phpunit/phpunit": "^9.5"
+    }
+}
