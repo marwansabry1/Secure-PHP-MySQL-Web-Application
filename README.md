@@ -1,4 +1,5 @@
 # Secure PHP/MySQL Web Application - MKR Motors Website
+This was originally a group project for a university module, but I decided to improve it myself with a focus on OWASP vulnerability mitigation techniques.
 
 A security-focused PHP/MySQL web application demonstrating secure coding practices and OWASP vulnerability mitigation techniques.
 
