@@ -33,24 +33,41 @@ This project was developed to showcase:
 
 ```
 project/
-├── README.md                 # This file
-├── SECURITY_FIXES.md        # Detailed security documentation
-├── database.sql             # Database schema and sample data
-├── .env.example             # Environment variables template
-├── .gitignore              # Git ignore rules
-├── connect.php             # Database connection
-├── home.php                # Homepage with featured cars
-├── header.php              # Navigation header
-├── new-cars.php            # New cars listing page
-├── preowned-cars.php       # Pre-owned cars listing page
-├── search-results.php      # Search results page
-├── contact.php             # Contact form
-├── book-testdrive.php      # Test drive booking page
-├── submit-testdrive.php    # Test drive submission handler
-├── form-validation.js      # Client-side form validation
-├── styles.css              # Unified stylesheet
-└── images/
-    └── cars/               # Vehicle images
+├── README.md                     # This file
+├── SECURITY_FIXES.md            # Detailed security documentation
+├── .env.example                 # Environment variables template
+├── .gitignore                   # Git ignore rules
+├── composer.json                # PHP dependencies (PHPUnit)
+│
+├── database/
+│   └── database.sql             # Database schema and sample data
+│
+├── includes/
+│   ├── connect.php              # Database connection
+│   ├── header.php               # Navigation header
+│   └── csrf.php                 # CSRF token handling
+│
+├── public/
+│   ├── index.php                # Homepage with featured cars
+│   ├── new-cars.php             # New cars listing page
+│   ├── preowned-cars.php        # Pre-owned cars listing page
+│   ├── search-results.php       # Search results page
+│   ├── contact.php              # Contact form
+│   ├── book-testdrive.php       # Test drive booking page
+│   └── submit-testdrive.php     # Test drive submission handler
+│
+├── assets/
+│   ├── css/
+│   │   └── styles.css           # Unified stylesheet
+│   ├── js/
+│   │   └── form-validation.js   # Client-side form validation
+│   └── images/
+│       ├── hero.jpg             # Hero banner image
+│       ├── banner3.jpg          # Additional banner image
+│       └── cars/                # Vehicle images
+│
+└── tests/
+    └── CsrfTest.php             # CSRF protection unit tests
 ```
 
 ## Getting Started
@@ -98,7 +115,7 @@ project/
    > SOURCE database.sql;
    ```
 
-5. **Start your web server** and navigate to `http://localhost/project/`
+5. **Start your web server** and navigate to `http://localhost/project/public/`
 
 ### Testing
 This project includes unit tests for core security features.
@@ -109,7 +126,7 @@ This project includes unit tests for core security features.
    ```
 2. **Run Tests:**
    ```bash
-   ./tests/phpunit tests
+   ./vendor/bin/phpunit tests
    ```
 
 ## Security
@@ -144,8 +161,8 @@ See [SECURITY_FIXES.md](SECURITY_FIXES.md) for detailed information about securi
 
 ### Running a Local Server
 ```bash
-# Using PHP built-in server
-php -S localhost:8000
+# Using PHP built-in server (run from project root)
+php -S localhost:8000 -t public
 
 # Then visit http://localhost:8000
 ```
